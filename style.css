@@ -184,6 +184,7 @@ ul {
 .main-call {
   background: white;
   padding: 64px 24px 56px;
+  scroll-margin-top: 80px;
 }
 
 .call-text {
@@ -240,34 +241,165 @@ ul {
 .text-center { text-align: center; }
 .text-right { text-align: right; }
 
-.progress-wrapper {
-  max-width: 600px;
+/* ===== DARUJME WIDGET STYLING ===== */
+.widget-wrapper {
+  max-width: 540px;
   margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow:
+    0 4px 16px rgba(10,18,48,0.08),
+    0 12px 40px rgba(10,18,48,0.06);
+  border: 1px solid rgba(10,18,48,0.06);
 }
 
-.progress-stats {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-  gap: 16px;
+/* Skryjeme defaultní nadpis a popis widgetu (máme svůj nad widgetem) */
+.widget-wrapper .widget-title,
+.widget-wrapper .widget-description,
+.widget-wrapper .widget-headline,
+.widget-wrapper .widget-subheadline {
+  display: none !important;
 }
 
-.stat-label {
-  font-size: 11px;
-  color: #6E7A92;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  margin-bottom: 4px;
+/* Velká čísla (vybráno) */
+.widget-wrapper .widget-amount-current,
+.widget-wrapper .widget-current-amount {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  color: #0A1230 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1.1 !important;
 }
 
-.stat-value-row {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
+/* "z 270 000 Kč" – cílová částka */
+.widget-wrapper .widget-amount-target,
+.widget-wrapper .widget-target-amount,
+.widget-wrapper .widget-goal {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: #6E7A92 !important;
+  font-weight: 500 !important;
 }
 
-.stat-value-big {
+/* Progress bar (teploměr) */
+.widget-wrapper .widget-progress,
+.widget-wrapper .widget-progress-bar,
+.widget-wrapper .widget-thermometer {
+  background: linear-gradient(180deg, #DCE2EC 0%, #EEF1F6 100%) !important;
+  height: 14px !important;
+  border-radius: 100px !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 2px 4px rgba(10,18,48,0.15) !important;
+  border: 1px solid rgba(10,18,48,0.05) !important;
+  margin: 16px 0 !important;
+}
+
+.widget-wrapper .widget-progress-bar > div,
+.widget-wrapper .widget-progress > div,
+.widget-wrapper .widget-thermometer > div,
+.widget-wrapper .widget-progress-fill {
+  background: linear-gradient(180deg, #FF3260 0%, #E11D48 55%, #B61740 100%) !important;
+  border-radius: 100px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    inset 0 -2px 3px rgba(0,0,0,0.18) !important;
+  height: 100% !important;
+}
+
+/* Tlačítka pro výběr částky */
+.widget-wrapper .widget-amount-button,
+.widget-wrapper .widget-amounts button,
+.widget-wrapper button[type="button"]:not(.widget-submit) {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  border: 1.5px solid rgba(10,18,48,0.12) !important;
+  background: white !important;
+  color: #0A1230 !important;
+  padding: 10px 14px !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+}
+
+.widget-wrapper .widget-amount-button:hover,
+.widget-wrapper .widget-amounts button:hover,
+.widget-wrapper button[type="button"]:not(.widget-submit):hover {
+  border-color: #E11D48 !important;
+  color: #E11D48 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Vybrané tlačítko částky (active state) */
+.widget-wrapper .widget-amount-button.active,
+.widget-wrapper .widget-amount-button[data-selected="true"],
+.widget-wrapper .widget-amounts button.active,
+.widget-wrapper .widget-amounts button.selected {
+  background: #E11D48 !important;
+  border-color: #E11D48 !important;
+  color: white !important;
+}
+
+/* Tlačítko Darovat */
+.widget-wrapper .widget-submit,
+.widget-wrapper button[type="submit"],
+.widget-wrapper input[type="submit"] {
+  font-family: 'Inter', sans-serif !important;
+  background: #E11D48 !important;
+  color: white !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px !important;
+  border-radius: 100px !important;
+  padding: 16px 32px !important;
+  border: none !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  margin-top: 16px !important;
+  box-shadow: 0 8px 24px rgba(225,29,72,0.35) !important;
+  transition: transform 0.15s ease !important;
+}
+
+.widget-wrapper .widget-submit:hover,
+.widget-wrapper button[type="submit"]:hover {
+  transform: translateY(-1px) !important;
+}
+
+/* Link "Jiná částka" */
+.widget-wrapper .widget-custom-amount,
+.widget-wrapper a {
+  color: #E11D48 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+/* Spodní text "Zabezpečeno Darujme.cz" */
+.widget-wrapper .widget-footer,
+.widget-wrapper .widget-secured {
+  font-size: 11px !important;
+  color: #6E7A92 !important;
+  text-align: center !important;
+  margin-top: 12px !important;
+}
+
+/* Inputy ve formuláři (e-mail, jméno, atd.) */
+.widget-wrapper input[type="text"],
+.widget-wrapper input[type="email"],
+.widget-wrapper input[type="number"] {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid rgba(10,18,48,0.12) !important;
+  padding: 10px 14px !important;
+}
+
+.widget-wrapper input:focus {
+  outline: none !important;
+  border-color: #E11D48 !important;
+}
+/* ===== KONEC WIDGET STYLING ===== */
   font-size: 28px;
   font-weight: 800;
   color: #0A1230;
