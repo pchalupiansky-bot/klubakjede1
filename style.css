@@ -1,0 +1,1098 @@
+/* ========================================
+   KLUBÁK JEDE - Microsite styles
+   Sociální podnik Klubák, Beroun, 2026
+   ======================================== */
+
+/* Reset & základ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0A1230;
+  background: #FAFBFC;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Animace */
+@keyframes klubakPulse {
+  0% { box-shadow: 0 8px 24px rgba(225,29,72,0.35), 0 0 0 0 rgba(225,29,72,0.55); }
+  70% { box-shadow: 0 8px 24px rgba(225,29,72,0.35), 0 0 0 18px rgba(225,29,72,0); }
+  100% { box-shadow: 0 8px 24px rgba(225,29,72,0.35), 0 0 0 0 rgba(225,29,72,0); }
+}
+
+@keyframes klubakPulseSm {
+  0% { box-shadow: 0 4px 12px rgba(225,29,72,0.3), 0 0 0 0 rgba(225,29,72,0.5); }
+  70% { box-shadow: 0 4px 12px rgba(225,29,72,0.3), 0 0 0 12px rgba(225,29,72,0); }
+  100% { box-shadow: 0 4px 12px rgba(225,29,72,0.3), 0 0 0 0 rgba(225,29,72,0); }
+}
+
+@keyframes klubakStickyPulse {
+  0% { box-shadow: 0 12px 32px rgba(225,29,72,0.5), 0 0 0 0 rgba(225,29,72,0.6); }
+  70% { box-shadow: 0 12px 32px rgba(225,29,72,0.5), 0 0 0 14px rgba(225,29,72,0); }
+  100% { box-shadow: 0 12px 32px rgba(225,29,72,0.5), 0 0 0 0 rgba(225,29,72,0); }
+}
+
+/* Tlačítka */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: #E11D48;
+  color: white;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.btn-large {
+  padding: 18px 40px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.btn-pulse { animation: klubakPulse 2.2s infinite; }
+.btn-pulse-sm { animation: klubakPulseSm 2.2s infinite; }
+
+/* Header */
+.header {
+  background: white;
+  border-bottom: 1px solid rgba(10,18,48,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+  font-size: 13px;
+  color: #4A5670;
+  font-weight: 500;
+}
+
+.nav a:hover { color: #1E2D6E; }
+
+.header .btn-primary {
+  padding: 9px 18px;
+  font-size: 13px;
+}
+
+/* Hero */
+.hero {
+  background: #1E2D6E;
+  padding: 80px 24px;
+  color: white;
+  text-align: center;
+}
+
+.hero-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  line-height: 0.95;
+  letter-spacing: -2.5px;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-title .italic {
+  color: #FF7A95;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 19px;
+  color: #C5CCE5;
+  margin-bottom: 32px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Hlavní výzva */
+.main-call {
+  background: white;
+  padding: 64px 24px 56px;
+}
+
+.call-text {
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title-xl {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0A1230;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0A1230;
+  letter-spacing: -1.2px;
+  line-height: 1.1;
+}
+
+.section-subtitle {
+  font-size: 19px;
+  color: #4A5670;
+  line-height: 1.55;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-subtitle-sm {
+  font-size: 15px;
+  color: #4A5670;
+  line-height: 1.55;
+  margin-top: 16px;
+}
+
+.italic-coral {
+  color: #E11D48;
+  font-style: italic;
+}
+
+.italic-pink {
+  color: #FF7A95;
+  font-style: italic;
+}
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.progress-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 16px;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #6E7A92;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.stat-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.stat-value-big {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A1230;
+  letter-spacing: -1.2px;
+}
+
+.stat-value-small {
+  font-size: 13px;
+  color: #6E7A92;
+}
+
+.stat-value-coral {
+  font-size: 18px;
+  font-weight: 700;
+  color: #E11D48;
+  letter-spacing: -0.5px;
+}
+
+/* Plastický progress bar */
+.progress-bar {
+  background: linear-gradient(180deg, #DCE2EC 0%, #EEF1F6 100%);
+  height: 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(10,18,48,0.15), 0 1px 0 rgba(255,255,255,0.9);
+  border: 1px solid rgba(10,18,48,0.05);
+}
+
+.progress-fill {
+  background: linear-gradient(180deg, #FF3260 0%, #E11D48 55%, #B61740 100%);
+  height: 100%;
+  border-radius: 100px;
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    inset 0 -2px 3px rgba(0,0,0,0.18),
+    0 2px 8px rgba(225,29,72,0.45);
+}
+
+.progress-shine {
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 100px;
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-size: 11px;
+  color: #1E2D6E;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.eyebrow-light {
+  color: #FF7A95;
+}
+
+/* Co dodávka znamená */
+.what-it-means {
+  background: #F4F6F9;
+  padding: 48px 24px;
+}
+
+.what-it-means .text-center {
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.what-it-means .section-title {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tile {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(10,18,48,0.05);
+}
+
+.tile-emoji {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.tile-text {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0A1230;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+
+/* Slovo ředitelky */
+.director {
+  background: #1E2D6E;
+  color: white;
+  padding: 48px 24px;
+}
+
+.director-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.director-photo {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #2A3A85;
+}
+
+.director-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-coral {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(225,29,72,0.15);
+  color: #FF7A95;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.quote {
+  font-size: 21px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  color: white;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+
+.quote-mark {
+  color: #E11D48;
+  font-size: 36px;
+  line-height: 0.5;
+  vertical-align: -10px;
+  font-family: Georgia, serif;
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.signature-line {
+  width: 36px;
+  height: 1px;
+  background: #E11D48;
+}
+
+.signature-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: white;
+  letter-spacing: -0.2px;
+}
+
+.signature-role {
+  font-size: 12px;
+  color: #9DA7CC;
+}
+
+/* Tváře, které podpoříte */
+.faces {
+  background: #FAFBFC;
+  padding: 48px 24px;
+}
+
+.faces .text-center {
+  margin-bottom: 32px;
+}
+
+.face-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.face-card {
+  background: white;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(10,18,48,0.06);
+}
+
+.face-photo {
+  aspect-ratio: 1;
+  background: #C5CCE5;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4A5670;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.face-quote {
+  font-size: 13px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #0A1230;
+  font-weight: 500;
+}
+
+.face-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(10,18,48,0.06);
+}
+
+.face-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.face-avatar.coral { background: #E11D48; }
+.face-avatar.blue { background: #1E2D6E; }
+
+.face-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0A1230;
+}
+
+.face-role {
+  font-size: 10px;
+  color: #6E7A92;
+}
+
+/* Vzkazy dárců */
+.messages {
+  background: white;
+  padding: 48px 24px;
+}
+
+.messages-head {
+  margin-bottom: 28px;
+}
+
+.message-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.message-card {
+  background: #FAFBFC;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(10,18,48,0.06);
+}
+
+.message-quote {
+  font-size: 28px;
+  color: #E11D48;
+  line-height: 0.5;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+}
+
+.message-text {
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+  color: #0A1230;
+  font-weight: 500;
+}
+
+.message-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(10,18,48,0.06);
+}
+
+.message-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0A1230;
+}
+
+.message-location {
+  font-size: 10px;
+  color: #6E7A92;
+}
+
+.message-amount {
+  background: #FCE7EC;
+  color: #C9143E;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* Tituly dárců */
+.titles {
+  background: #FAFBFC;
+  padding: 48px 24px;
+}
+
+.titles-head {
+  margin-bottom: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titles .section-title-xl {
+  font-size: 36px;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.title-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.title-card {
+  background: white;
+  border: 1px solid rgba(10,18,48,0.08);
+  padding: 22px 18px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.title-card-mid {
+  border-color: rgba(225,29,72,0.3);
+}
+
+.title-card-top {
+  background: linear-gradient(135deg, #1E2D6E 0%, #0A1230 100%);
+  border: none;
+  color: white;
+}
+
+.title-emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.title-amount {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.title-card-top .title-amount { color: white; }
+
+.title-badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.title-badge.blue {
+  background: #E8EBF7;
+  color: #1E2D6E;
+}
+
+.title-badge.coral {
+  background: #FCE7EC;
+  color: #C9143E;
+}
+
+.title-badge.coral-bg {
+  background: #E11D48;
+  color: white;
+}
+
+/* Pro firmy */
+.companies {
+  background: #1E2D6E;
+  color: white;
+  padding: 56px 24px;
+}
+
+.companies-head {
+  margin-bottom: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title-xl-light {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: white;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+.section-subtitle-light {
+  font-size: 16px;
+  color: #C5CCE5;
+  line-height: 1.55;
+}
+
+.company-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.company-card {
+  background: white;
+  padding: 24px 20px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+}
+
+.company-card-top {
+  border: 2px solid #E11D48;
+  box-shadow: 0 8px 24px rgba(225,29,72,0.25);
+}
+
+.company-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #E11D48;
+  color: white;
+  font-size: 10px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.company-tier {
+  font-size: 10px;
+  color: #1E2D6E;
+  letter-spacing: 1px;
+  margin: 8px 0;
+  font-weight: 700;
+}
+
+.company-tier-grey {
+  font-size: 10px;
+  color: #6E7A92;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.company-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A1230;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.company-benefits {
+  font-size: 12px;
+  color: #4A5670;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.company-benefits li {
+  margin-bottom: 4px;
+}
+
+.company-stats {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 22px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item-bordered {
+  border-left: 1px solid rgba(255,255,255,0.1);
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: #FF7A95;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.stat-desc {
+  font-size: 11px;
+  color: #C5CCE5;
+  line-height: 1.4;
+}
+
+.company-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 4px 0 16px;
+}
+
+.company-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+.contact-info {
+  font-size: 12px;
+  color: #9DA7CC;
+}
+
+.company-contact .btn-primary {
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* FAQ */
+.faq {
+  background: white;
+  padding: 48px 24px;
+}
+
+.faq .text-center {
+  margin-bottom: 28px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #FAFBFC;
+  padding: 18px 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(10,18,48,0.06);
+}
+
+.faq-item summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0A1230;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+
+.faq-item summary::after {
+  content: "+";
+  color: #1E2D6E;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  font-size: 13px;
+  color: #4A5670;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+/* Footer */
+.footer {
+  background: #0A1230;
+  color: #6B7AA5;
+  font-size: 12px;
+  padding: 32px 24px;
+}
+
+.footer-name {
+  margin-bottom: 8px;
+  color: white;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+
+.footer-info {
+  margin-bottom: 12px;
+  color: #9DA7CC;
+}
+
+.footer-copyright {
+  font-size: 11px;
+  color: #4A5685;
+}
+
+/* Sticky CTA */
+.sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  background: #E11D48;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.btn-sticky-pulse { animation: klubakStickyPulse 2.2s infinite; }
+
+/* ============= MOBIL ============= */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Header */
+  .nav {
+    gap: 14px;
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 48px 16px;
+  }
+  .hero-title {
+    font-size: 44px;
+    letter-spacing: -1.5px;
+  }
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-buttons .btn {
+    justify-content: center;
+  }
+
+  /* Hlavní výzva */
+  .main-call {
+    padding: 40px 16px;
+  }
+  .section-title-xl {
+    font-size: 32px;
+    letter-spacing: -1.2px;
+  }
+  .section-subtitle {
+    font-size: 16px;
+  }
+  .progress-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .text-right {
+    text-align: left !important;
+  }
+
+  /* Gridy na 1 sloupec */
+  .tiles,
+  .face-cards,
+  .message-cards,
+  .title-cards,
+  .company-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Director */
+  .director-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .director-photo {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .quote {
+    font-size: 18px;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 26px;
+  }
+  .section-title-xl-light {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  /* Companies stats */
+  .stat-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .stat-item-bordered {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 0;
+  }
+  .company-contact {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .company-contact .btn-primary {
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  /* Sticky CTA na mobilu - menší */
+  .sticky-cta {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 40px;
+  }
+  .section-title-xl {
+    font-size: 28px;
+  }
+}
