@@ -252,6 +252,15 @@ ul {
     0 4px 16px rgba(10,18,48,0.08),
     0 12px 40px rgba(10,18,48,0.06);
   border: 1px solid rgba(10,18,48,0.06);
+  text-align: center;
+}
+
+/* Iframe nebo divy uvnitř widgetu - vycentrovat */
+.widget-wrapper > div,
+.widget-wrapper iframe {
+  margin: 0 auto !important;
+  display: block !important;
+  max-width: 100% !important;
 }
 
 /* Skryjeme defaultní nadpis a popis widgetu (máme svůj nad widgetem) */
