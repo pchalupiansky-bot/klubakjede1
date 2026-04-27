@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/firmy", "destination": "/#firmy", "permanent": false }
+  ]
+}
