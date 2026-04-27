@@ -825,6 +825,16 @@ ul {
   margin: 0 auto;
 }
 
+.titles-note {
+  text-align: center;
+  font-size: 14px;
+  color: #4A5670;
+  margin: 22px auto 0;
+  max-width: 720px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
 .title-card {
   background: white;
   border: 1px solid rgba(10,18,48,0.08);
