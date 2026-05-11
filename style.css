@@ -1,489 +1,1381 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ========================================
+   KLUBÁK JEDE - Microsite styles
+   Sociální podnik Klubák, Beroun, 2026
+   ======================================== */
 
-  <!-- SEO -->
-  <title>Klubák jede. – Pomozte nám pořídit dodávku pro sociální podnik</title>
-  <meta name="description" content="Sociální podnik Klubák z Berounska potřebuje vlastní dodávku, aby mohl pokračovat v rozvozu jídla a přibírat nové zaměstnance se zdravotním znevýhodněním. Přispějte.">
+/* Reset & základ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Open Graph (pro sdílení na FB, LinkedIn) -->
-  <meta property="og:title" content="Klubák jede. – Sociální podnik z Berounska">
-  <meta property="og:description" content="Pomozte nám pořídit vlastní dodávku. Vlastní auto znamená víc rozvozů, víc zakázek a víc pracovních míst pro lidi, kteří je nejhůř hledají.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.klubakjede.cz">
-  <meta property="og:image" content="https://www.klubakjede.cz/img/og-image.jpg">
-  <meta property="og:locale" content="cs_CZ">
+html {
+  scroll-behavior: smooth;
+}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Klubák jede.">
-  <meta name="twitter:description" content="Pomozte nám pořídit vlastní dodávku pro sociální podnik z Berounska.">
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #0A1230;
+  background: #FAFBFC;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-  <!-- Favicon (placeholder - nahradíš vlastním) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚐</text></svg>">
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+ul {
+  list-style: none;
+}
 
-  <!-- Navigace -->
-  <header class="header">
-    <div class="container header-inner">
-      <nav class="nav">
-        <a href="#pribeh">Příběh</a>
-        <a href="#firmy">Pro firmy</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-      <a href="#darovat" class="btn btn-primary btn-pulse-sm">Přispět →</a>
-    </div>
-  </header>
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="img/honza.jpg" alt="" aria-hidden="true">
-      <img src="img/jana.jpg" alt="" aria-hidden="true">
-      <img src="img/petr.jpg" alt="" aria-hidden="true">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-inner">
-      <h1 class="hero-title">
-        <span>Klubák</span>
-        <span class="italic">jede.</span>
-      </h1>
-      <p class="hero-subtitle">
-        Lukáš peče punčák. Jana zdobí perníčky. František roznáší kávu. Všichni mají poprvé v životě pevnou práci. Dva roky jsme produkty jejich práce rozváželi v zapůjčené dodávce. Tu nyní musíme vrátit. Pomozte nám pořídit vlastní, aby Klubák jel dál.
-      </p>
-      <div class="hero-buttons">
-        <a href="#darovat" class="btn btn-primary btn-pulse">
-          Přispět na dodávku <span>→</span>
-        </a>
-        <a href="#firmy" class="btn btn-secondary">Pro firmy</a>
-      </div>
-    </div>
-  </section>
+/* Animace */
+@keyframes klubakPulse {
+  0% { box-shadow: 0 8px 24px rgba(225,29,72,0.35), 0 0 0 0 rgba(225,29,72,0.55); }
+  70% { box-shadow: 0 8px 24px rgba(225,29,72,0.35), 0 0 0 18px rgba(225,29,72,0); }
+  100% { box-shadow: 0 8px 24px rgba(225,29,72,0.35), 0 0 0 0 rgba(225,29,72,0); }
+}
 
-  <!-- Hlavní výzva s progress barem -->
-  <section class="main-call" id="darovat">
-    <div class="container">
-      <div class="call-text">
-        <h2 class="section-title-xl">
-          Bez vlastní dodávky nemůže Klubák dál <span class="italic-coral">růst</span>.
-        </h2>
-        <p class="section-subtitle">
-          Vlastní auto znamená víc rozvozů, víc zakázek a víc pracovních míst pro lidi, kteří je nejhůř hledají.
-        </p>
-      </div>
+@keyframes klubakPulseSm {
+  0% { box-shadow: 0 4px 12px rgba(225,29,72,0.3), 0 0 0 0 rgba(225,29,72,0.5); }
+  70% { box-shadow: 0 4px 12px rgba(225,29,72,0.3), 0 0 0 12px rgba(225,29,72,0); }
+  100% { box-shadow: 0 4px 12px rgba(225,29,72,0.3), 0 0 0 0 rgba(225,29,72,0); }
+}
 
-      <!-- Darujme widget -->
-      <div class="widget-wrapper">
-        <div data-darujme-widget-token="j8p9wj4t61byu921"></div>
-        <script type="text/javascript">
-          +function(w, d, s, u, a, b) {
-            w['DarujmeObject'] = u;
-            w[u] = w[u] || function () { (w[u].q = w[u].q || []).push(arguments) };
-            a = d.createElement(s); b = d.getElementsByTagName(s)[0];
-            a.async = 1; a.src = "https://www.darujme.cz/assets/scripts/widget.js";
-            b.parentNode.insertBefore(a, b);
-          }(window, document, 'script', 'Darujme');
-          Darujme(1, "j8p9wj4t61byu921", 'render', "https://www.darujme.cz/widget?token=j8p9wj4t61byu921", "270px");
-        </script>
-      </div>
-    </div>
-  </section>
+@keyframes klubakStickyPulse {
+  0% { box-shadow: 0 12px 32px rgba(225,29,72,0.5), 0 0 0 0 rgba(225,29,72,0.6); }
+  70% { box-shadow: 0 12px 32px rgba(225,29,72,0.5), 0 0 0 14px rgba(225,29,72,0); }
+  100% { box-shadow: 0 12px 32px rgba(225,29,72,0.5), 0 0 0 0 rgba(225,29,72,0); }
+}
 
-  <!-- Co dodávka znamená -->
-  <section class="what-it-means">
-    <div class="container">
-      <div class="text-center">
-        <div class="eyebrow">CO PRO NÁS DODÁVKA ZNAMENÁ</div>
-        <h2 class="section-title">
-          Možnost rozvozu produktů do školek, škol, firem či <span class="italic-coral">charity</span>.
-        </h2>
-      </div>
-      <div class="tiles">
-        <div class="tile">
-          <div class="tile-emoji">🚚</div>
-          <div class="tile-text">Stálý rozvoz produktů z chráněných dílen</div>
-        </div>
-        <div class="tile">
-          <div class="tile-emoji">👩‍🍳</div>
-          <div class="tile-text">Více pracovních míst pro lidi se zdravotním znevýhodněním</div>
-        </div>
-        <div class="tile">
-          <div class="tile-emoji">🌱</div>
-          <div class="tile-text">Stabilnější fungování sociálního podniku</div>
-        </div>
-      </div>
-    </div>
-  </section>
+/* Tlačítka */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 26px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s ease;
+}
 
-  <!-- Slovo ředitelky -->
-  <section class="director" id="pribeh">
-    <div class="container director-inner">
-      <div class="director-photo">
-        <img src="img/peckova.jpg" alt="Alena Pecková, ředitelka Sociálního podniku Klubák">
-      </div>
-      <div class="director-quote">
-        <div class="badge-coral">SLOVO ŘEDITELKY</div>
-        <p class="quote">
-          <span class="quote-mark">"</span>Když ráno přijdu do Klubáku, vidím Kryštofa, jak plete housky, Radku, jak chystá obědy do školek, a Františka za pultem v bistru. Pro ně všechny a spoustu dalších tu dodávku potřebujeme. Aby měli práci, na kterou jsou hrdí – a my mohli přibírat další.
-        </p>
-        <div class="signature">
-          <div class="signature-line"></div>
-          <div>
-            <div class="signature-name">Alena Pecková</div>
-            <div class="signature-role">ředitelka Sociálního podniku Klubák</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+.btn:hover { transform: translateY(-1px); }
 
-  <!-- Tváře, které podpoříte -->
-  <section class="faces">
-    <div class="container">
-      <div class="text-center">
-        <div class="eyebrow">LIDÉ KLUBÁKU</div>
-        <h2 class="section-title">Tváře, které <span class="italic-coral">podpoříte</span>.</h2>
-      </div>
+.btn-primary {
+  background: #E11D48;
+  color: white;
+}
 
-      <div class="face-cards">
-        <div class="face-card">
-          <div class="face-photo"><img src="img/honza.jpg" alt="Lukáš, pekař v Klubáku"></div>
-          <p class="face-quote">"Práce v Klubáku je mé první zaměstnání. Nedovedu si představit pracovat někde jinde."</p>
-          <div class="face-info">
-            <div class="face-avatar coral">L</div>
-            <div>
-              <div class="face-name">Lukáš</div>
-              <div class="face-role">pekař</div>
-            </div>
-          </div>
-        </div>
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.15);
+}
 
-        <div class="face-card">
-          <div class="face-photo"><img src="img/jana.jpg" alt="Jana, cukrářka v Klubáku"></div>
-          <p class="face-quote">"Když odnesu hotový dort, vidím v očích lidí radost. To je víc, než jsem kdy čekala."</p>
-          <div class="face-info">
-            <div class="face-avatar blue">J</div>
-            <div>
-              <div class="face-name">Jana</div>
-              <div class="face-role">cukrářka</div>
-            </div>
-          </div>
-        </div>
+.btn-large {
+  padding: 18px 40px;
+  font-size: 16px;
+  font-weight: 700;
+}
 
-        <div class="face-card">
-          <div class="face-photo"><img src="img/petr.jpg" alt="František, obsluha bistra v Klubáku"></div>
-          <p class="face-quote">"Ráno jdu do práce s úsměvem."</p>
-          <div class="face-info">
-            <div class="face-avatar coral">F</div>
-            <div>
-              <div class="face-name">František</div>
-              <div class="face-role">obsluha bistra</div>
-            </div>
-          </div>
-        </div>
-      </div>
+.btn-pulse { animation: klubakPulse 2.2s infinite; }
+.btn-pulse-sm { animation: klubakPulseSm 2.2s infinite; }
 
-      <div class="text-center">
-        <a href="#darovat" class="btn btn-primary btn-pulse">
-          Darovat a podpořit <span>→</span>
-        </a>
-      </div>
-    </div>
-  </section>
+/* Header */
+.header {
+  background: white;
+  border-bottom: 1px solid rgba(10,18,48,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-  <!-- Vzkazy dárců -->
-  <section class="messages">
-    <div class="container">
-      <div class="messages-head">
-        <div>
-          <div class="eyebrow">VZKAZY DÁRCŮ</div>
-          <h2 class="section-title">Říkají to <span class="italic-coral">za nás</span>.</h2>
-        </div>
-      </div>
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
 
-      <div class="message-cards">
-        <div class="message-card">
-          <div class="message-quote">"</div>
-          <p class="message-text">Krásný projekt, Berounsko vás podpoří!</p>
-          <div class="message-info">
-            <div>
-              <div class="message-name">Marie K.</div>
-              <div class="message-location">📍 Beroun</div>
-            </div>
-            <div class="message-amount">500 Kč</div>
-          </div>
-        </div>
+.nav {
+  display: flex;
+  gap: 22px;
+  font-size: 13px;
+  color: #4A5670;
+  font-weight: 500;
+}
 
-        <div class="message-card">
-          <div class="message-quote">"</div>
-          <p class="message-text">Klubáku fandím od první návštěvy bistra. Držím palce!</p>
-          <div class="message-info">
-            <div>
-              <div class="message-name">Petr H.</div>
-              <div class="message-location">📍 Hořovice</div>
-            </div>
-            <div class="message-amount">1 000 Kč</div>
-          </div>
-        </div>
+.nav a:hover { color: #1E2D6E; }
 
-        <div class="message-card">
-          <div class="message-quote">"</div>
-          <p class="message-text">Moje dcera tam ráda chodí. Skvělou práci děláte.</p>
-          <div class="message-info">
-            <div>
-              <div class="message-name">Jana M.</div>
-              <div class="message-location">📍 Králův Dvůr</div>
-            </div>
-            <div class="message-amount">2 000 Kč</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+.header .btn-primary {
+  padding: 9px 18px;
+  font-size: 13px;
+}
 
-  <!-- Tituly dárců -->
-  <section class="titles">
-    <div class="container">
-      <div class="text-center titles-head">
-        <div class="eyebrow">VAŠE JMÉNO POJEDE S NÁMI</div>
-        <h2 class="section-title-xl">
-          Dárci od 500 Kč<br>
-          budou mít své jméno <span class="italic-coral">na dodávce</span>.
-        </h2>
-        <p class="section-subtitle-sm">Dodávka pojede s námi po Berounsku několik dalších let – a vy s ní.</p>
-      </div>
+/* Hero */
+.hero {
+  background: #1E2D6E;
+  padding: 90px 24px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      <div class="title-cards title-cards-4">
-        <div class="title-card">
-          <div class="title-emoji">🤝</div>
-          <div class="title-amount">300 Kč+</div>
-          <div class="title-badge grey">DÁRCE</div>
-        </div>
+/* Fotka v pozadí - 3 fotky vedle sebe ve flexboxu */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 1;
+}
 
-        <div class="title-card">
-          <div class="title-emoji">📝</div>
-          <div class="title-amount">500 Kč+</div>
-          <div class="title-badge blue">DÁRCE SE JMÉNEM<br>NA DODÁVCE</div>
-        </div>
+.hero-bg img {
+  flex: 1;
+  width: 33.333%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
 
-        <div class="title-card title-card-mid">
-          <div class="title-emoji">⭐</div>
-          <div class="title-amount">1 000 Kč+</div>
-          <div class="title-badge coral">VÝZNAMNÝ DÁRCE</div>
-        </div>
+/* Tmavý overlay s gradientem - zachová čitelnost textu */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10, 18, 48, 0.88) 0%,
+      rgba(30, 45, 110, 0.78) 50%,
+      rgba(10, 18, 48, 0.88) 100%
+    );
+  z-index: 2;
+}
 
-        <div class="title-card title-card-top">
-          <div class="title-emoji">🏆</div>
-          <div class="title-amount">2 000 Kč+</div>
-          <div class="title-badge coral-bg">SUPERDÁRCE</div>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
 
-  <!-- Pro firmy -->
-  <section class="companies" id="firmy">
-    <div class="container">
-      <div class="text-center companies-head">
-        <div class="eyebrow eyebrow-light">PRO FIRMY</div>
-        <h2 class="section-title-xl-light">
-          Vaše značka <span class="italic-pink">v pohybu</span> po celém Berounsku.
-        </h2>
-        <p class="section-subtitle-light">
-          Logo na dodávce Klubáku spojuje vaši značku s autentickým společenským přínosem – a viditelně vás dostává před lidi z celého Berounska.
-        </p>
-      </div>
+.hero-title {
+  font-size: 72px;
+  font-weight: 800;
+  margin-bottom: 28px;
+  line-height: 0.95;
+  letter-spacing: -3px;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
 
-      <div class="company-cards">
-        <!-- Generální partner -->
-        <div class="company-card company-card-top">
-          <div class="company-badge">⭐ EXKLUZIVNÍ</div>
-          <div class="company-tier">GENERÁLNÍ PARTNER DODÁVKY</div>
-          <div class="company-price">60 000 Kč</div>
-          <ul class="company-benefits">
-            <li>
-              <span class="benefit-icon icon-blue">⭐</span>
-              <span><strong>Exkluzivní titul</strong> „Generální partner"</span>
-            </li>
-            <li>
-              <span class="benefit-icon icon-coral">🚐</span>
-              <span><strong>Největší logo</strong> na dodávce</span>
-            </li>
-            <li>
-              <span class="benefit-icon icon-yellow">🥐</span>
-              <span>Logo v <strong>NEJen Bistro</strong> a <strong>Levandulovém bistru Vráž</strong></span>
-            </li>
-            <li>
-              <span class="benefit-icon icon-green">📱</span>
-              <span><strong>Sponzorovaný příspěvek</strong> z křtu s poděkováním<br><small>dosah 10 000 lidí na Berounsku</small></span>
-            </li>
-          </ul>
-        </div>
+.hero-title span {
+  display: block;
+}
 
-        <!-- Hlavní partner -->
-        <div class="company-card">
-          <div class="company-tier-grey">HLAVNÍ PARTNER</div>
-          <div class="company-price">40 000 Kč</div>
-          <ul class="company-benefits">
-            <li>
-              <span class="benefit-icon icon-coral">🚐</span>
-              <span><strong>Významné logo</strong> na dodávce</span>
-            </li>
-            <li>
-              <span class="benefit-icon icon-yellow">🥐</span>
-              <span>Logo v <strong>NEJen Bistro</strong> a <strong>Levandulovém bistru Vráž</strong></span>
-            </li>
-            <li>
-              <span class="benefit-icon icon-green">📱</span>
-              <span><strong>Sponzorovaný příspěvek</strong> z křtu s poděkováním<br><small>dosah 5 000 lidí</small></span>
-            </li>
-          </ul>
-        </div>
+.hero-title .italic {
+  color: #FF7A95;
+  font-style: italic;
+}
 
-        <!-- Partner dodávky -->
-        <div class="company-card">
-          <div class="company-tier-grey">PARTNER DODÁVKY</div>
-          <div class="company-price">20 000 Kč</div>
-          <ul class="company-benefits">
-            <li>
-              <span class="benefit-icon icon-coral">🚐</span>
-              <span>Logo na dodávce</span>
-            </li>
-            <li>
-              <span class="benefit-icon icon-green">📱</span>
-              <span><strong>Sponzorovaný příspěvek</strong> z křtu s poděkováním<br><small>dosah 2 500 lidí</small></span>
-            </li>
-          </ul>
-        </div>
-      </div>
+.hero-subtitle {
+  font-size: 19px;
+  color: #E5E9F5;
+  margin-bottom: 36px;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
 
-      <!-- Statistický pruh + kontakt -->
-      <div class="company-stats">
-        <div class="stat-grid">
-          <div class="stat-item">
-            <div class="stat-num">5+ let</div>
-            <div class="stat-desc">Životnost loga na dodávce</div>
-          </div>
-          <div class="stat-item stat-item-bordered">
-            <div class="stat-num">100 %</div>
-            <div class="stat-desc">Daňově odečitatelné</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">Berounsko</div>
-            <div class="stat-desc">Lokální zásah a viditelnost</div>
-          </div>
-        </div>
-        <div class="company-divider"></div>
-        <div class="company-contact">
-          <div>
-            <div class="contact-title">Domluvte si nezávazné setkání</div>
-            <div class="contact-info">Karel Slavík • kslavik@klubickoberoun.cz • +420 602 628 954</div>
-          </div>
-          <a href="mailto:kslavik@klubickoberoun.cz" class="btn btn-primary btn-pulse-sm">Mám zájem →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-  <!-- FAQ -->
-  <section class="faq" id="faq">
-    <div class="container">
-      <div class="text-center">
-        <div class="eyebrow">FAQ</div>
-        <h2 class="section-title">Co vás možná <span class="italic-coral">napadá</span>.</h2>
-      </div>
+/* Hlavní výzva */
+.main-call {
+  background: white;
+  padding: 64px 24px 56px;
+  scroll-margin-top: 80px;
+}
 
-      <div class="faq-list">
-        <details class="faq-item" open>
-          <summary>Proč Klubák potřebuje vlastní dodávku?</summary>
-          <p>Dva roky jsme rozváželi v zapůjčené dodávce. Díky tomu jsme si mohli ověřit, že o naše produkty je na Berounsku opravdový zájem. Nyní dodávku musíme vrátit a místo prodlužování provizorií chceme udělat krok dospělosti – pořídit vlastní dodávku, která Klubáku zajistí stabilitu na další roky.</p>
-        </details>
+.call-text {
+  text-align: center;
+  margin-bottom: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        <details class="faq-item">
-          <summary>Kolik celkem potřebujete vybrat?</summary>
-          <p>Celkový rozpočet na pořízení dodávky a první rok provozu je 650 000 Kč. Od veřejnosti se snažíme vybrat 270 000 Kč, zbytek pokryjeme z firemního partnerství, nadačních fondů a vlastního provozu.</p>
-        </details>
+.section-title-xl {
+  font-size: 48px;
+  font-weight: 800;
+  color: #0A1230;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
 
-        <details class="faq-item">
-          <summary>Co se stane, když se nevybere celá částka?</summary>
-          <p>Každá koruna jde na pořízení a provoz dodávky. Pokud se nevybere celá částka, dofinancujeme ji z vlastních zdrojů. Pokud se naopak vybere víc, použijeme přebytek na první roky provozu, abychom dodávku mohli udržovat dál v provozu.</p>
-        </details>
+.section-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0A1230;
+  letter-spacing: -1.2px;
+  line-height: 1.1;
+}
 
-        <details class="faq-item">
-          <summary>Mohu si dar odečíst z daní?</summary>
-          <p>Ano. Sociální podnik Klubák je registrovaná organizace a vystavujeme potvrzení o daru pro daňové účely. U Darujme.cz vám potvrzení přijde automaticky e-mailem ihned po platbě.</p>
-        </details>
+.section-subtitle {
+  font-size: 19px;
+  color: #4A5670;
+  line-height: 1.55;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-        <details class="faq-item">
-          <summary>Co když nejsem fyzická osoba? Může darovat firma?</summary>
-          <p>Samozřejmě. Pro firmy máme připravené partnerské balíčky od 20 000 Kč včetně umístění loga přímo na dodávce a sponzorovaného příspěvku s poděkováním na sociálních sítích. Více informací v sekci „Pro firmy" nebo přímo u Karla Slavíka: kslavik@klubickoberoun.cz, +420 602 628 954.</p>
-        </details>
+.section-subtitle-sm {
+  font-size: 15px;
+  color: #4A5670;
+  line-height: 1.55;
+  margin-top: 16px;
+}
 
-        <details class="faq-item">
-          <summary>Kam bude dodávka jezdit?</summary>
-          <p>Po celém Berounsku – Beroun, Králův Dvůr, Hořovice, Zdice, Loděnice a další obce. Rozvážíme do dětských skupin, školek, firem i domácností.</p>
-        </details>
-      </div>
-    </div>
-  </section>
+.italic-coral {
+  color: #E11D48;
+  font-style: italic;
+}
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container text-center">
-      <div class="footer-name">Sociální podnik Klubák</div>
-      <div class="footer-info">Beroun • IČO 04867271 • apeckova@klubickoberoun.cz</div>
-      <div class="footer-copyright">© 2026 Klubák • Sociální podnik z Berounska</div>
-    </div>
-  </footer>
+.italic-pink {
+  color: #FF7A95;
+  font-style: italic;
+}
 
-  <!-- Sticky CTA -->
-  <a href="#darovat" class="sticky-cta btn-sticky-pulse" id="stickyCTA">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-    </svg>
-    Přispět
-  </a>
+.text-center { text-align: center; }
+.text-right { text-align: right; }
 
-  <script>
-    // Sticky CTA – objevit po scrollu pod hero
-    const stickyCTA = document.getElementById('stickyCTA');
-    const heroSection = document.querySelector('.hero');
-    let stickyVisible = false;
+/* ===== DARUJME WIDGET STYLING ===== */
+.widget-wrapper {
+  max-width: 540px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow:
+    0 4px 16px rgba(10,18,48,0.08),
+    0 12px 40px rgba(10,18,48,0.06);
+  border: 1px solid rgba(10,18,48,0.06);
+  text-align: center;
+}
 
-    function handleScroll() {
-      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-      const shouldShow = window.scrollY > heroBottom - 100;
+/* Iframe nebo divy uvnitř widgetu - vycentrovat */
+.widget-wrapper > div,
+.widget-wrapper iframe {
+  margin: 0 auto !important;
+  display: block !important;
+  max-width: 100% !important;
+}
 
-      if (shouldShow !== stickyVisible) {
-        stickyVisible = shouldShow;
-        stickyCTA.classList.toggle('visible', shouldShow);
-      }
-    }
+/* Skryjeme defaultní nadpis a popis widgetu (máme svůj nad widgetem) */
+.widget-wrapper .widget-title,
+.widget-wrapper .widget-description,
+.widget-wrapper .widget-headline,
+.widget-wrapper .widget-subheadline {
+  display: none !important;
+}
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+/* Velká čísla (vybráno) */
+.widget-wrapper .widget-amount-current,
+.widget-wrapper .widget-current-amount {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 36px !important;
+  font-weight: 800 !important;
+  color: #0A1230 !important;
+  letter-spacing: -1.5px !important;
+  line-height: 1.1 !important;
+}
 
-    // Smooth scroll pro hash linky
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
+/* "z 270 000 Kč" – cílová částka */
+.widget-wrapper .widget-amount-target,
+.widget-wrapper .widget-target-amount,
+.widget-wrapper .widget-goal {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: #6E7A92 !important;
+  font-weight: 500 !important;
+}
 
-</body>
-</html>
+/* Progress bar (teploměr) */
+.widget-wrapper .widget-progress,
+.widget-wrapper .widget-progress-bar,
+.widget-wrapper .widget-thermometer {
+  background: linear-gradient(180deg, #DCE2EC 0%, #EEF1F6 100%) !important;
+  height: 14px !important;
+  border-radius: 100px !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 2px 4px rgba(10,18,48,0.15) !important;
+  border: 1px solid rgba(10,18,48,0.05) !important;
+  margin: 16px 0 !important;
+}
+
+.widget-wrapper .widget-progress-bar > div,
+.widget-wrapper .widget-progress > div,
+.widget-wrapper .widget-thermometer > div,
+.widget-wrapper .widget-progress-fill {
+  background: linear-gradient(180deg, #FF3260 0%, #E11D48 55%, #B61740 100%) !important;
+  border-radius: 100px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    inset 0 -2px 3px rgba(0,0,0,0.18) !important;
+  height: 100% !important;
+}
+
+/* Tlačítka pro výběr částky */
+.widget-wrapper .widget-amount-button,
+.widget-wrapper .widget-amounts button,
+.widget-wrapper button[type="button"]:not(.widget-submit) {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  border: 1.5px solid rgba(10,18,48,0.12) !important;
+  background: white !important;
+  color: #0A1230 !important;
+  padding: 10px 14px !important;
+  transition: all 0.15s ease !important;
+  cursor: pointer !important;
+}
+
+.widget-wrapper .widget-amount-button:hover,
+.widget-wrapper .widget-amounts button:hover,
+.widget-wrapper button[type="button"]:not(.widget-submit):hover {
+  border-color: #E11D48 !important;
+  color: #E11D48 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Vybrané tlačítko částky (active state) */
+.widget-wrapper .widget-amount-button.active,
+.widget-wrapper .widget-amount-button[data-selected="true"],
+.widget-wrapper .widget-amounts button.active,
+.widget-wrapper .widget-amounts button.selected {
+  background: #E11D48 !important;
+  border-color: #E11D48 !important;
+  color: white !important;
+}
+
+/* Tlačítko Darovat */
+.widget-wrapper .widget-submit,
+.widget-wrapper button[type="submit"],
+.widget-wrapper input[type="submit"] {
+  font-family: 'Inter', sans-serif !important;
+  background: #E11D48 !important;
+  color: white !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px !important;
+  border-radius: 100px !important;
+  padding: 16px 32px !important;
+  border: none !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  margin-top: 16px !important;
+  box-shadow: 0 8px 24px rgba(225,29,72,0.35) !important;
+  transition: transform 0.15s ease !important;
+}
+
+.widget-wrapper .widget-submit:hover,
+.widget-wrapper button[type="submit"]:hover {
+  transform: translateY(-1px) !important;
+}
+
+/* Link "Jiná částka" */
+.widget-wrapper .widget-custom-amount,
+.widget-wrapper a {
+  color: #E11D48 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+/* Spodní text "Zabezpečeno Darujme.cz" */
+.widget-wrapper .widget-footer,
+.widget-wrapper .widget-secured {
+  font-size: 11px !important;
+  color: #6E7A92 !important;
+  text-align: center !important;
+  margin-top: 12px !important;
+}
+
+/* Inputy ve formuláři (e-mail, jméno, atd.) */
+.widget-wrapper input[type="text"],
+.widget-wrapper input[type="email"],
+.widget-wrapper input[type="number"] {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid rgba(10,18,48,0.12) !important;
+  padding: 10px 14px !important;
+}
+
+.widget-wrapper input:focus {
+  outline: none !important;
+  border-color: #E11D48 !important;
+}
+/* ===== KONEC WIDGET STYLING ===== */
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A1230;
+  letter-spacing: -1.2px;
+}
+
+.stat-value-small {
+  font-size: 13px;
+  color: #6E7A92;
+}
+
+.stat-value-coral {
+  font-size: 18px;
+  font-weight: 700;
+  color: #E11D48;
+  letter-spacing: -0.5px;
+}
+
+/* Plastický progress bar */
+.progress-bar {
+  background: linear-gradient(180deg, #DCE2EC 0%, #EEF1F6 100%);
+  height: 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(10,18,48,0.15), 0 1px 0 rgba(255,255,255,0.9);
+  border: 1px solid rgba(10,18,48,0.05);
+}
+
+.progress-fill {
+  background: linear-gradient(180deg, #FF3260 0%, #E11D48 55%, #B61740 100%);
+  height: 100%;
+  border-radius: 100px;
+  position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    inset 0 -2px 3px rgba(0,0,0,0.18),
+    0 2px 8px rgba(225,29,72,0.45);
+}
+
+.progress-shine {
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  right: 8px;
+  height: 4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 100px;
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-size: 11px;
+  color: #1E2D6E;
+  letter-spacing: 1.2px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.eyebrow-light {
+  color: #FF7A95;
+}
+
+/* Co dodávka znamená */
+.what-it-means {
+  background: #F4F6F9;
+  padding: 48px 24px;
+}
+
+.what-it-means .text-center {
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.what-it-means .section-title {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tile {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(10,18,48,0.05);
+}
+
+.tile-emoji {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.tile-text {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0A1230;
+  line-height: 1.4;
+  letter-spacing: -0.2px;
+}
+
+/* Slovo ředitelky */
+.director {
+  background: #1E2D6E;
+  color: white;
+  padding: 48px 24px;
+}
+
+.director-inner {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.director-photo {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #2A3A85;
+}
+
+.director-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-coral {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(225,29,72,0.15);
+  color: #FF7A95;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.quote {
+  font-size: 21px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  color: white;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+}
+
+.quote-mark {
+  color: #E11D48;
+  font-size: 36px;
+  line-height: 0.5;
+  vertical-align: -10px;
+  font-family: Georgia, serif;
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.signature-line {
+  width: 36px;
+  height: 1px;
+  background: #E11D48;
+}
+
+.signature-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: white;
+  letter-spacing: -0.2px;
+}
+
+.signature-role {
+  font-size: 12px;
+  color: #9DA7CC;
+}
+
+/* Tváře, které podpoříte */
+.faces {
+  background: #FAFBFC;
+  padding: 48px 24px;
+}
+
+.faces .text-center {
+  margin-bottom: 32px;
+}
+
+.face-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.face-card {
+  background: white;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(10,18,48,0.06);
+}
+
+.face-photo {
+  aspect-ratio: 1;
+  background: #C5CCE5;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4A5670;
+  font-size: 11px;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.face-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.face-quote {
+  font-size: 13px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #0A1230;
+  font-weight: 500;
+}
+
+.face-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(10,18,48,0.06);
+}
+
+.face-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.face-avatar.coral { background: #E11D48; }
+.face-avatar.blue { background: #1E2D6E; }
+
+.face-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0A1230;
+}
+
+.face-role {
+  font-size: 10px;
+  color: #6E7A92;
+}
+
+/* Vzkazy dárců */
+.messages {
+  background: white;
+  padding: 48px 24px;
+}
+
+.messages-head {
+  margin-bottom: 28px;
+}
+
+.message-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.message-card {
+  background: #FAFBFC;
+  padding: 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(10,18,48,0.06);
+}
+
+.message-quote {
+  font-size: 28px;
+  color: #E11D48;
+  line-height: 0.5;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+}
+
+.message-text {
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+  color: #0A1230;
+  font-weight: 500;
+}
+
+.message-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(10,18,48,0.06);
+}
+
+.message-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0A1230;
+}
+
+.message-location {
+  font-size: 10px;
+  color: #6E7A92;
+}
+
+.message-amount {
+  background: #FCE7EC;
+  color: #C9143E;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* Tituly dárců */
+.titles {
+  background: #FAFBFC;
+  padding: 48px 24px;
+}
+
+.titles-head {
+  margin-bottom: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titles .section-title-xl {
+  font-size: 36px;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.title-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* Varianta se 4 kartami */
+.title-cards-4 {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 900px;
+}
+
+.title-cards-4 .title-badge {
+  font-size: 10px;
+  line-height: 1.3;
+}
+
+.title-cards-4 .title-amount {
+  font-size: 22px;
+}
+
+/* Šedý badge pro nejnižší tier "DÁRCE" */
+.title-badge.grey {
+  background: #EEF1F6;
+  color: #4A5670;
+}
+
+.titles-note {
+  text-align: center;
+  font-size: 14px;
+  color: #4A5670;
+  margin: 22px auto 0;
+  max-width: 720px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.title-card {
+  background: white;
+  border: 1px solid rgba(10,18,48,0.08);
+  padding: 22px 18px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.title-card-mid {
+  border-color: rgba(225,29,72,0.3);
+}
+
+.title-card-top {
+  background: linear-gradient(135deg, #1E2D6E 0%, #0A1230 100%);
+  border: none;
+  color: white;
+}
+
+.title-emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.title-amount {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.title-card-top .title-amount { color: white; }
+
+.title-badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.title-badge.blue {
+  background: #E8EBF7;
+  color: #1E2D6E;
+}
+
+.title-badge.coral {
+  background: #FCE7EC;
+  color: #C9143E;
+}
+
+.title-badge.coral-bg {
+  background: #E11D48;
+  color: white;
+}
+
+/* Pro firmy */
+.companies {
+  background: #1E2D6E;
+  color: white;
+  padding: 56px 24px;
+}
+
+.companies-head {
+  margin-bottom: 32px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title-xl-light {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: white;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+
+.section-subtitle-light {
+  font-size: 16px;
+  color: #C5CCE5;
+  line-height: 1.55;
+}
+
+.company-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.company-card {
+  background: white;
+  padding: 24px 20px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.15);
+  position: relative;
+}
+
+.company-card-top {
+  border: 2px solid #E11D48;
+  box-shadow: 0 8px 24px rgba(225,29,72,0.25);
+}
+
+.company-badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #E11D48;
+  color: white;
+  font-size: 10px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.company-tier {
+  font-size: 10px;
+  color: #1E2D6E;
+  letter-spacing: 1px;
+  margin: 8px 0;
+  font-weight: 700;
+}
+
+.company-tier-grey {
+  font-size: 10px;
+  color: #6E7A92;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.company-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A1230;
+  margin-bottom: 14px;
+  letter-spacing: -1px;
+}
+
+.company-benefits {
+  font-size: 12.5px;
+  color: #4A5670;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.company-benefits li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  list-style: none;
+}
+
+.company-benefits li:last-child {
+  margin-bottom: 0;
+}
+
+.company-benefits li small {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: #6E7A92;
+  font-style: italic;
+}
+
+.company-benefits li strong {
+  color: #0A1230;
+}
+
+/* Barevné ikony */
+.benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.icon-blue {
+  background: #E8EBF7;
+}
+
+.icon-coral {
+  background: #FCE7EC;
+}
+
+.icon-yellow {
+  background: #FFF6E0;
+}
+
+.icon-green {
+  background: #DEFAEC;
+}
+
+.company-stats {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 22px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item-bordered {
+  border-left: 1px solid rgba(255,255,255,0.1);
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-num {
+  font-size: 24px;
+  font-weight: 800;
+  color: #FF7A95;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.stat-desc {
+  font-size: 11px;
+  color: #C5CCE5;
+  line-height: 1.4;
+}
+
+.company-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 4px 0 16px;
+}
+
+.company-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+.contact-info {
+  font-size: 12px;
+  color: #9DA7CC;
+}
+
+.company-contact .btn-primary {
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* FAQ */
+.faq {
+  background: white;
+  padding: 48px 24px;
+}
+
+.faq .text-center {
+  margin-bottom: 28px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #FAFBFC;
+  padding: 18px 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(10,18,48,0.06);
+}
+
+.faq-item summary {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0A1230;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+
+.faq-item summary::after {
+  content: "+";
+  color: #1E2D6E;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  font-size: 13px;
+  color: #4A5670;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+/* Footer */
+.footer {
+  background: #0A1230;
+  color: #6B7AA5;
+  font-size: 12px;
+  padding: 32px 24px;
+}
+
+.footer-name {
+  margin-bottom: 8px;
+  color: white;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.5px;
+}
+
+.footer-info {
+  margin-bottom: 12px;
+  color: #9DA7CC;
+}
+
+.footer-copyright {
+  font-size: 11px;
+  color: #4A5685;
+}
+
+/* Sticky CTA */
+.sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  background: #E11D48;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.btn-sticky-pulse { animation: klubakStickyPulse 2.2s infinite; }
+
+/* ============= MOBIL ============= */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Header */
+  .nav {
+    gap: 14px;
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 64px 16px;
+    min-height: 380px;
+  }
+  .hero-bg img {
+    object-position: center 25%;
+  }
+  .hero-title {
+    font-size: 48px;
+    letter-spacing: -1.8px;
+  }
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hero-buttons .btn {
+    justify-content: center;
+  }
+
+  /* Hlavní výzva */
+  .main-call {
+    padding: 40px 16px;
+  }
+  .section-title-xl {
+    font-size: 32px;
+    letter-spacing: -1.2px;
+  }
+  .section-subtitle {
+    font-size: 16px;
+  }
+  .progress-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .text-right {
+    text-align: left !important;
+  }
+
+  /* Gridy na 1 sloupec */
+  .tiles,
+  .face-cards,
+  .message-cards,
+  .title-cards,
+  .company-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* 4-cards verze má 2 sloupce na mobilu (lépe se vejde) */
+  .title-cards-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Director */
+  .director-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .director-photo {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .quote {
+    font-size: 18px;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 26px;
+  }
+  .section-title-xl-light {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  /* Companies stats */
+  .stat-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .stat-item-bordered {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 12px 0;
+  }
+  .company-contact {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .company-contact .btn-primary {
+    align-self: stretch;
+    justify-content: center;
+  }
+
+  /* Sticky CTA na mobilu - menší */
+  .sticky-cta {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 40px;
+  }
+  .section-title-xl {
+    font-size: 28px;
+  }
+}
